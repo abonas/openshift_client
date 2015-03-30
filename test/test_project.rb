@@ -1,5 +1,9 @@
 require 'test_helper'
 
+def open_test_json_file(name)
+  File.new(File.join(File.dirname(__FILE__), 'json', name))
+end
+
 # Project entity tests
 class TestProject < MiniTest::Test
   def test_get_project
