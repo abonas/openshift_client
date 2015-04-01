@@ -9,8 +9,8 @@ require 'kubeclient/watch_stream'
 require 'kubeclient/common'
 
 module OpenshiftClient
-  # Kubernetes Client
-  class Client < Common::Client
+  # Openshift Client
+  class Client < Kubeclient::Common::Client
     attr_reader :api_endpoint
 
     # Dynamically creating classes definitions (class Pod, class Service, etc.),
