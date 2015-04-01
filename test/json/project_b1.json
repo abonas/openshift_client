@@ -2,12 +2,14 @@
     "kind": "Project",
     "apiVersion": "v1beta1",
     "metadata": {
-        "name": "staging",
-        "selfLink": "/api/v1beta3/namespaces/staging",
-        "uid": "e388bc10-c021-11e4-a514-3c970e4a436a",
-        "resourceVersion": "1168",
-        "creationTimestamp": "2015-03-01T16:47:31+02:00"
+        "name": "master",
+        "selfLink": "/osapi/v1beta1/projects/master",
+        "uid": "80359e00-d874-11e4-b110-f8b156af4ae1",
+        "resourceVersion": "36",
+        "creationTimestamp": "2015-04-01T13:39:20Z"
     },
     "spec": {},
-    "status": {}
+    "status": {
+        "phase": "Active"
+    }
 }
