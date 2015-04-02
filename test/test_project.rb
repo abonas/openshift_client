@@ -23,8 +23,8 @@ class TestProject < MiniTest::Test
 
   def test_get_projects
     stub_request(:get, /\/projects/)
-    .to_return(body: open_test_json_file('project_list_b1.json'),
-               status: 200)
+      .to_return(body: open_test_json_file('project_list_b1.json'),
+                 status: 200)
 
     client = OpenshiftClient::Client.new 'https://localhost:8080/osapi'
     projects = client.get_projects
