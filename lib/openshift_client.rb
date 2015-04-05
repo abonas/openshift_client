@@ -13,7 +13,7 @@ module OpenshiftClient
   class Client < Kubeclient::Common::Client
     attr_reader :api_endpoint
 
-    # Dynamically creating classes definitions (class Pod, class Service, etc.),
+    # Dynamically creating classes definitions (class Project, class Pod, etc.),
     # The classes are extending RecursiveOpenStruct.
     # This cancels the need to define the classes
     # manually on every new entity addition,

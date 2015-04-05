@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest'
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'rubocop'
-  spec.add_dependency 'kubeclient'
+  spec.add_dependency 'kubeclient', '>= 0.1.9'
   spec.add_dependency 'rest-client'
   spec.add_dependency 'activesupport'
   spec.add_dependency 'json'
