@@ -34,12 +34,4 @@ class TestProject < MiniTest::Test
     assert_equal(2, projects.size)
     assert_instance_of(OpenshiftClient::Project, projects[1])
   end
-
-  def test_p
-    # temp test for real env
-    # WebMock.allow_net_connect!
-    # client = OpenshiftClient::Client.new 'https://<IP>:8443/osapi'
-    # client.ssl_options(verify_ssl: OpenSSL::SSL::VERIFY_NONE)
-    # projects = client.get_projects
-  end
 end
