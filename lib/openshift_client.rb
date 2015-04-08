@@ -1,6 +1,4 @@
 require 'openshift_client/version'
-require 'json'
-require 'rest-client'
 require 'active_support/inflector'
 require 'kubeclient/entity_list'
 require 'kubeclient/kube_exception'
