@@ -7,7 +7,7 @@ end
 # Project entity tests
 class TestProject < MiniTest::Test
   def test_get_project
-    stub_request(:get, /\/projects/)
+    stub_request(:get, %r{/projects})
       .to_return(body: open_test_json_file('project_b1.json'),
                  status: 200)
 
@@ -22,7 +22,7 @@ class TestProject < MiniTest::Test
   end
 
   def test_get_projects
-    stub_request(:get, /\/projects/)
+    stub_request(:get, %r{/projects})
       .to_return(body: open_test_json_file('project_list_b1.json'),
                  status: 200)
 
