@@ -29,6 +29,8 @@ Or install it yourself as:
 ## Usage
 
 TODO: Write usage instructions here
+Initialize the client:
+client = OpenshiftClient::Client.new 'https://hostName:8443'
 
 ## Contributing
 
