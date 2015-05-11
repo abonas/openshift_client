@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['abonas@redhat.com']
   spec.summary       = 'A client for Openshift REST api'
   spec.description   = 'A client for Openshift REST api'
-  spec.homepage      =  'https://github.com/abonas/openshift_client'
+  spec.homepage      = 'https://github.com/abonas/openshift_client'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest'
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'rubocop', '= 0.30.0'
-  spec.add_dependency 'kubeclient', '>= 0.1.12'
+  spec.add_dependency 'kubeclient', '>= 0.1.14'
   spec.add_dependency 'activesupport'
   spec.add_dependency 'recursive-open-struct', '= 0.6.1'
 end
