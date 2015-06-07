@@ -23,6 +23,7 @@ module OpenshiftClient
     def initialize(uri, version = 'v1beta1')
       handle_uri(uri, '/osapi')
       @api_version = version
+      @headers = {}
       ssl_options
     end
 
