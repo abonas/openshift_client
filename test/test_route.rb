@@ -11,12 +11,12 @@ class TestRoute < MiniTest::Test
       .to_return(body: open_test_json_file('route_b1.json'),
                  status: 200)
 
-    client = OpenshiftClient::Client.new 'https://localhost:8080/osapi'
-    route = client.get_route 'master'
+    client = OpenshiftClient::Client.new 'https://localhost:8080/oapi'
+    route = client.get_route 'route-edge'
 
     assert_instance_of(OpenshiftClient::Route, route)
-    assert_equal('99135218-d927-11e4-9471-f8b156af4ae1', route.metadata.uid)
+    assert_equal('6937497c-249d-11e5-9fe4-727174f8ab71', route.metadata.uid)
     assert_equal('route-edge', route.metadata.name)
-    assert_equal('v1beta1', route.apiVersion)
+    assert_equal('v1', route.apiVersion)
   end
 end

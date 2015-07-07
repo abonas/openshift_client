@@ -1,15 +1,26 @@
 {
-    "kind": "Project",
-    "apiVersion": "v1beta1",
-    "metadata": {
-        "name": "master",
-        "selfLink": "/osapi/v1beta1/projects/master",
-        "uid": "80359e00-d874-11e4-b110-f8b156af4ae1",
-        "resourceVersion": "36",
-        "creationTimestamp": "2015-04-01T13:39:20Z"
-    },
-    "spec": {},
-    "status": {
-        "phase": "Active"
+  "kind": "Project",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "test",
+    "selfLink": "/oapi/v1/projects/test",
+    "uid": "2626e632-2491-11e5-9fe4-727174f8ab71",
+    "resourceVersion": "241",
+    "creationTimestamp": "2015-07-07T10:15:53Z",
+    "annotations": {
+      "openshift.io/description": "",
+      "openshift.io/display-name": "",
+      "openshift.io/sa.scc.mcs": "s0:c6,c0",
+      "openshift.io/sa.scc.uid-range": "1000030000/10000"
     }
+  },
+  "spec": {
+    "finalizers": [
+      "openshift.io/origin",
+      "kubernetes"
+    ]
+  },
+  "status": {
+    "phase": "Active"
+  }
 }
