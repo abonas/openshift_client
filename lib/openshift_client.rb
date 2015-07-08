@@ -20,8 +20,8 @@ module OpenshiftClient
       [OpenshiftClient.const_set(et, Class.new(RecursiveOpenStruct)), et]
     end
 
-    def initialize(uri, version = 'v1beta1')
-      handle_uri(uri, '/osapi')
+    def initialize(uri, version = 'v1', path = 'oapi')
+      handle_uri(uri, path)
       @api_version = version
       @headers = {}
       ssl_options
