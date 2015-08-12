@@ -20,11 +20,28 @@ module OpenshiftClient
       [OpenshiftClient.const_set(et, Class.new(RecursiveOpenStruct)), et]
     end
 
-    def initialize(uri, version = 'v1', path = '/oapi')
+    def initialize(uri,
+                   version = 'v1',
+                   path = '/oapi',
+                   ssl_options: {
+                     client_cert: nil,
+                     client_key: nil,
+                     ca_file: nil,
+                     verify_ssl: OpenSSL::SSL::VERIFY_PEER
+                   },
+                   auth_options: {})
+      fail ArgumentError, 'Missing uri' if uri.nil?
+
+      validate_auth_options(auth_options)
+
       handle_uri(uri, path)
       @api_version = version
       @headers = {}
-      ssl_options
+      @ssl_options = ssl_options
+
+      @basic_auth_user = auth_options[:user]
+      @basic_auth_password = auth_options[:password]
+      bearer_token(auth_options[:bearer_token]) if auth_options[:bearer_token]
     end
 
     def all_entities
