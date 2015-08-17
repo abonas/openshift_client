@@ -4,6 +4,7 @@ require 'kubeclient/entity_list'
 require 'kubeclient/kube_exception'
 require 'kubeclient/watch_notice'
 require 'kubeclient/watch_stream'
+require 'kubeclient/http_proxy_wrapper'
 require 'kubeclient/common'
 
 module OpenshiftClient
