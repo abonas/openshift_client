@@ -8,8 +8,8 @@ require 'kubeclient/common'
 
 module OpenshiftClient
   # Openshift Client
-  class Client < Kubeclient::Common::Client
-    attr_reader :api_endpoint
+  class Client
+    include Kubeclient::ClientMixin
 
     # Dynamically creating classes definitions (class Project, class Pod, etc.),
     # The classes are extending RecursiveOpenStruct.
@@ -20,6 +20,8 @@ module OpenshiftClient
       [OpenshiftClient.const_set(et, Class.new(RecursiveOpenStruct)), et]
     end
 
+    Kubeclient::ClientMixin.define_entity_methods(ENTITY_TYPES)
+
     def initialize(uri,
                    version = 'v1',
                    path = '/oapi',
@@ -29,25 +31,18 @@ module OpenshiftClient
                      ca_file: nil,
                      verify_ssl: OpenSSL::SSL::VERIFY_PEER
                    },
-                   auth_options: {})
-      fail ArgumentError, 'Missing uri' if uri.nil?
-
-      validate_auth_options(auth_options)
-
-      handle_uri(uri, path)
-      @api_version = version
-      @headers = {}
-      @ssl_options = ssl_options
-
-      @basic_auth_user = auth_options[:user]
-      @basic_auth_password = auth_options[:password]
-      bearer_token(auth_options[:bearer_token]) if auth_options[:bearer_token]
+                   auth_options: {
+                     username:          nil,
+                     password:          nil,
+                     bearer_token:      nil,
+                     bearer_token_file: nil
+                   }
+                  )
+      initialize_client(uri, path, version, ssl_options: ssl_options, auth_options: auth_options)
     end
 
     def all_entities
       retrieve_all_entities(ENTITY_TYPES)
     end
-
-    define_entity_methods(ENTITY_TYPES)
   end
 end
