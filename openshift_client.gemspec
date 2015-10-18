@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest'
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'rubocop', '= 0.30.0'
-  spec.add_dependency 'kubeclient', '~> 0.5.0'
+  spec.add_dependency 'kubeclient', '~> 0.8.0'
   spec.add_dependency 'activesupport'
   spec.add_dependency 'recursive-open-struct', '= 0.6.1'
 end
