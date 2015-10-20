@@ -1,0 +1,61 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "kind": "SecurityContextConstraints",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "privileged",
+                "selfLink": "/api/v1/securitycontextconstraints/privileged",
+                "uid": "d3793f4d-6bf0-11e5-843a-525400f8b93e",
+                "resourceVersion": "57",
+                "creationTimestamp": "2015-10-06T06:09:38Z"
+            },
+            "allowPrivilegedContainer": true,
+            "allowedCapabilities": null,
+            "allowHostDirVolumePlugin": true,
+            "allowHostNetwork": true,
+            "allowHostPorts": true,
+            "seLinuxContext": {
+                "type": "RunAsAny"
+            },
+            "runAsUser": {
+                "type": "RunAsAny"
+            },
+            "users": [
+                "system:serviceaccount:openshift-infra:build-controller"
+            ],
+            "groups": [
+                "system:cluster-admins",
+                "system:nodes"
+            ]
+        },
+        {
+            "kind": "SecurityContextConstraints",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "restricted",
+                "selfLink": "/api/v1/securitycontextconstraints/restricted",
+                "uid": "d3799163-6bf0-11e5-843a-525400f8b93e",
+                "resourceVersion": "58",
+                "creationTimestamp": "2015-10-06T06:09:38Z"
+            },
+            "allowPrivilegedContainer": false,
+            "allowedCapabilities": null,
+            "allowHostDirVolumePlugin": false,
+            "allowHostNetwork": false,
+            "allowHostPorts": false,
+            "seLinuxContext": {
+                "type": "MustRunAs"
+            },
+            "runAsUser": {
+                "type": "MustRunAsRange"
+            },
+            "groups": [
+                "system:authenticated"
+            ]
+        }
+    ]
+}
