@@ -1,0 +1,409 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:replication-controller",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:replication-controller",
+                "uid": "54f55874-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "69",
+                "creationTimestamp": "2015-10-20T14:53:32Z"
+            },
+            "userNames": [
+                "system:serviceaccount:openshift-infra:replication-controller"
+            ],
+            "groupNames": [],
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "namespace": "openshift-infra",
+                    "name": "replication-controller"
+                }
+            ],
+            "roleRef": {
+                "name": "system:replication-controller"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:node-proxiers",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:node-proxiers",
+                "uid": "54a8e7d7-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "49",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:nodes"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:nodes"
+                }
+            ],
+            "roleRef": {
+                "name": "system:node-proxier"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:registrys",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:registrys",
+                "uid": "54a64627-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "47",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:registries"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:registries"
+                }
+            ],
+            "roleRef": {
+                "name": "system:registry"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:nodes",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:nodes",
+                "uid": "54a78a15-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "48",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:nodes"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:nodes"
+                }
+            ],
+            "roleRef": {
+                "name": "system:node"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:masters",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:masters",
+                "uid": "548d1fe2-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "39",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:masters"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:masters"
+                }
+            ],
+            "roleRef": {
+                "name": "system:master"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "self-provisioners",
+                "selfLink": "/oapi/v1/clusterrolebindings/self-provisioners",
+                "uid": "5499ca84-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "43",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:authenticated"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:authenticated"
+                }
+            ],
+            "roleRef": {
+                "name": "self-provisioner"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:deployment-controller",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:deployment-controller",
+                "uid": "54d14d7e-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "68",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [
+                "system:serviceaccount:openshift-infra:deployment-controller"
+            ],
+            "groupNames": [],
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "namespace": "openshift-infra",
+                    "name": "deployment-controller"
+                }
+            ],
+            "roleRef": {
+                "name": "system:deployment-controller"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "cluster-readers",
+                "selfLink": "/oapi/v1/clusterrolebindings/cluster-readers",
+                "uid": "549728b6-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "41",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:cluster-readers"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:cluster-readers"
+                }
+            ],
+            "roleRef": {
+                "name": "cluster-reader"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "cluster-status-binding",
+                "selfLink": "/oapi/v1/clusterrolebindings/cluster-status-binding",
+                "uid": "54a068a9-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "45",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:authenticated",
+                "system:unauthenticated"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:authenticated"
+                },
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:unauthenticated"
+                }
+            ],
+            "roleRef": {
+                "name": "cluster-status"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:oauth-token-deleters",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:oauth-token-deleters",
+                "uid": "549e6fed-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "44",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:authenticated",
+                "system:unauthenticated"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:authenticated"
+                },
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:unauthenticated"
+                }
+            ],
+            "roleRef": {
+                "name": "system:oauth-token-deleter"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:webhooks",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:webhooks",
+                "uid": "54ae8f0b-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "51",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:authenticated",
+                "system:unauthenticated"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:authenticated"
+                },
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:unauthenticated"
+                }
+            ],
+            "roleRef": {
+                "name": "system:webhook"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "basic-users",
+                "selfLink": "/oapi/v1/clusterrolebindings/basic-users",
+                "uid": "5498e847-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "42",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:authenticated"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:authenticated"
+                }
+            ],
+            "roleRef": {
+                "name": "basic-user"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:routers",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:routers",
+                "uid": "54a1b624-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "46",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:routers"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:routers"
+                }
+            ],
+            "roleRef": {
+                "name": "system:router"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:sdn-readers",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:sdn-readers",
+                "uid": "54ac8c26-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "50",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:nodes"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:nodes"
+                }
+            ],
+            "roleRef": {
+                "name": "system:sdn-reader"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "system:build-controller",
+                "selfLink": "/oapi/v1/clusterrolebindings/system:build-controller",
+                "uid": "54cb09fe-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "52",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [
+                "system:serviceaccount:openshift-infra:build-controller"
+            ],
+            "groupNames": [],
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "namespace": "openshift-infra",
+                    "name": "build-controller"
+                }
+            ],
+            "roleRef": {
+                "name": "system:build-controller"
+            }
+        },
+        {
+            "kind": "ClusterRoleBinding",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "cluster-admins",
+                "selfLink": "/oapi/v1/clusterrolebindings/cluster-admins",
+                "uid": "54938c11-773a-11e5-86f8-525400f8b93e",
+                "resourceVersion": "40",
+                "creationTimestamp": "2015-10-20T14:53:31Z"
+            },
+            "userNames": [],
+            "groupNames": [
+                "system:cluster-admins"
+            ],
+            "subjects": [
+                {
+                    "kind": "SystemGroup",
+                    "name": "system:cluster-admins"
+                }
+            ],
+            "roleRef": {
+                "name": "cluster-admin"
+            }
+        }
+    ]
+}

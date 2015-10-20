@@ -1,0 +1,24 @@
+{
+    "kind": "ClusterRoleBinding",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "cluster-admins",
+        "selfLink": "/oapi/v1/clusterrolebindings/cluster-admins",
+        "uid": "54938c11-773a-11e5-86f8-525400f8b93e",
+        "resourceVersion": "40",
+        "creationTimestamp": "2015-10-20T14:53:31Z"
+    },
+    "userNames": [],
+    "groupNames": [
+        "system:cluster-admins"
+    ],
+    "subjects": [
+        {
+            "kind": "SystemGroup",
+            "name": "system:cluster-admins"
+        }
+    ],
+    "roleRef": {
+        "name": "cluster-admin"
+    }
+}
