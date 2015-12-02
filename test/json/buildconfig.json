@@ -1,0 +1,70 @@
+{
+  "kind": "BuildConfig",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "ruby-sample-build",
+    "namespace": "default",
+    "selfLink": "/oapi/v1/namespaces/default/buildconfigs/ruby-sample-build",
+    "uid": "ee1657ed-98e2-11e5-af5f-5254000631f3",
+    "resourceVersion": "30613",
+    "creationTimestamp": "2015-12-02T10:53:32Z",
+    "labels": {
+      "app": "ruby-sample-build",
+      "name": "ruby-sample-build",
+      "template": "application-template-stibuild"
+    },
+    "annotations": {
+      "openshift.io/generated-by": "OpenShiftNewApp"
+    }
+  },
+  "spec": {
+    "triggers": [
+    {
+      "type": "GitHub",
+      "github": {
+        "secret": "secret101"
+      }
+    },
+    {
+      "type": "Generic",
+      "generic": {
+        "secret": "secret101"
+      }
+    },
+    {
+      "type": "ImageChange",
+      "imageChange": {
+        "lastTriggeredImageID": "centos/ruby-22-centos7@sha256:2579b328dd84b30a374b44dcf666e29d0f3240c528ddc81971c97072d4c1dc92"
+      }
+    },
+    {
+      "type": "ConfigChange"
+    }
+    ],
+    "source": {
+      "type": "Git",
+      "git": {
+        "uri": "https://github.com/openshift/ruby-hello-world.git"
+      }
+    },
+    "strategy": {
+      "type": "Source",
+      "sourceStrategy": {
+        "from": {
+          "kind": "ImageStreamTag",
+          "name": "ruby-22-centos7:latest"
+        }
+      }
+    },
+    "output": {
+      "to": {
+        "kind": "ImageStreamTag",
+        "name": "origin-ruby-sample:latest"
+      }
+    },
+    "resources": {}
+  },
+  "status": {
+    "lastVersion": 1
+  }
+}
