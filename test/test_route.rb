@@ -12,7 +12,7 @@ class TestRoute < MiniTest::Test
                  status: 200)
 
     client = OpenshiftClient::Client.new 'https://localhost:8080/oapi'
-    route = client.get_route 'route-edge'
+    route = client.get_route 'route-edge', 'default'
 
     assert_instance_of(OpenshiftClient::Route, route)
     assert_equal('6937497c-249d-11e5-9fe4-727174f8ab71', route.metadata.uid)
