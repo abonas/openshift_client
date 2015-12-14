@@ -16,7 +16,7 @@ module OpenshiftClient
     # This cancels the need to define the classes
     # manually on every new entity addition,
     # and especially since currently the class body is empty
-    ENTITY_TYPES = %w(Project Route ClusterRoleBinding).map do |et|
+    ENTITY_TYPES = %w(Project Route ClusterRoleBinding Build BuildConfig).map do |et|
       [OpenshiftClient.const_set(et, Class.new(RecursiveOpenStruct)), et]
     end
 
