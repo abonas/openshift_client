@@ -36,9 +36,14 @@ module OpenshiftClient
                      password:          nil,
                      bearer_token:      nil,
                      bearer_token_file: nil
+                   },
+                   socket_options: {
+                     socket_class:     nil,
+                     ssl_socket_class: nil
                    }
                   )
-      initialize_client(uri, path, version, ssl_options: ssl_options, auth_options: auth_options)
+      initialize_client(uri, path, version, ssl_options: ssl_options, auth_options: auth_options,
+                                            socket_options: socket_options)
     end
 
     def all_entities
