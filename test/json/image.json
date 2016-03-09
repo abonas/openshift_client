@@ -1,0 +1,63 @@
+{
+  "kind": "Image",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "sha256:9b214cc086795a08f41b55553e21a311bda2408cee537a40c4d785b44bd24",
+    "selfLink": "/oapi/v1/images/sha256:9b214cc086795a08f41b55553e21a311bda2408cee537a40c4d785b44bd24",
+    "uid": "256f00dd-7b37-11e5-8942-28d2447dcefe",
+    "resourceVersion": "194",
+    "creationTimestamp": "2015-10-25T16:40:48Z"
+  },
+  "dockerImageReference": "openshift/ruby-20-centos7@sha256:9b214cc086795a08f41b55553e21a311bda2408cee537a40c4d785b44bd24",
+  "dockerImageMetadata": {
+    "kind": "DockerImage",
+    "apiVersion": "1.0",
+    "Id": "sha256:9b214cc086795a08f41b55553e21a311bda2408cee537a40c4d785b44bd24",
+    "Parent": "980c4802b0fa001cd0fec081afedfee041ec49438a1670e05350c6a25610ac03",
+    "Created": "2015-10-23T20:21:41Z",
+    "ContainerConfig": {},
+    "DockerVersion": "1.7.1",
+    "Author": "SoftwareCollections.org \u003csclorg@redhat.com\u003e",
+    "Config": {
+      "User": "1001",
+      "ExposedPorts": {
+        "8080/tcp": {}
+      },
+      "Env": [
+        "PATH=/opt/app-root/src/bin:/opt/app-root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "STI_SCRIPTS_URL=image:///usr/libexec/s2i",
+        "STI_SCRIPTS_PATH=/usr/libexec/s2i",
+        "HOME=/opt/app-root/src",
+        "BASH_ENV=/opt/app-root/etc/scl_enable",
+        "ENV=/opt/app-root/etc/scl_enable",
+        "PROMPT_COMMAND=. /opt/app-root/etc/scl_enable",
+        "RUBY_VERSION=2.0"
+      ],
+      "Cmd": [
+        "/bin/sh",
+        "-c",
+        "$STI_SCRIPTS_PATH/usage"
+      ],
+      "Image": "980c4802b0fa001cd0fec081afedfee041ec49438a1670e05350c6a25610ac03",
+      "WorkingDir": "/opt/app-root/src",
+      "Entrypoint": [
+        "container-entrypoint"
+      ],
+      "Labels": {
+        "License": "GPLv2",
+        "Vendor": "CentOS",
+        "io.k8s.description": "Platform for building and running Ruby 2.0 applications",
+        "io.k8s.display-name": "Ruby 2.0",
+        "io.openshift.builder-base-version": "f5bfa20",
+        "io.openshift.builder-version": "33dadac",
+        "io.openshift.expose-services": "8080:http",
+        "io.openshift.s2i.scripts-url": "image:///usr/libexec/s2i",
+        "io.openshift.tags": "builder,ruby,ruby20",
+        "io.s2i.scripts-url": "image:///usr/libexec/s2i"
+      }
+    },
+    "Architecture": "amd64",
+    "Size": 53514887
+  },
+  "dockerImageMetadataVersion": "1.0"
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "ImageStreamList",
+  "apiVersion": "v1",
+  "metadata": {
+    "selfLink": "/oapi/v1/imagestreams",
+    "resourceVersion": "4544663"
+  },
+  "items": [
+    {
+      "metadata": {
+        "name": "eng-boss-image-inspector",
+        "namespace": "default",
+        "selfLink": "/oapi/v1/namespaces/default/imagestreams/eng-boss-image-inspector",
+        "uid": "f4499f16-b7bc-11e5-a0a4-001a4a231290",
+        "resourceVersion": "2836367",
+        "creationTimestamp": "2016-01-10T17:09:48Z",
+        "annotations": {
+          "openshift.io/image.dockerRepositoryCheck": "the registry \"https://rcm-img-docker01.build.eng.bos.redhat.com:5001\" could not be reached"
+        }
+      },
+      "spec": {
+        "dockerImageRepository": "rcm-img-docker01.build.eng.bos.redhat.com:5001/openshift3/image-inspector"
+      },
+      "status": {
+        "dockerImageRepository": "172.30.107.74:5000/default/eng-boss-image-inspector"
+      }
+    }
+  ]
+}
