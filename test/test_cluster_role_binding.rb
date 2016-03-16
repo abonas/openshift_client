@@ -1,14 +1,10 @@
 require 'test_helper'
 
-def open_test_json_file(name)
-  File.new(File.join(File.dirname(__FILE__), 'json', name))
-end
-
 # ClusterRoleBinding entity tests
 class TestClusterRoleBinding < MiniTest::Test
   def test_get_cluster_role_binding
     stub_request(:get, %r{/clusterrolebindings/cluster-admins})
-      .to_return(body: open_test_json_file('cluster_role_binding.json'),
+      .to_return(body: open_test_file('cluster_role_binding.json'),
                  status: 200)
 
     client = OpenshiftClient::Client.new 'https://localhost:8080/oapi'
@@ -22,7 +18,7 @@ class TestClusterRoleBinding < MiniTest::Test
 
   def test_get_cluster_role_bindings
     stub_request(:get, %r{/clusterrolebindings})
-      .to_return(body: open_test_json_file('cluster_role_bindings_list.json'),
+      .to_return(body: open_test_file('cluster_role_bindings_list.json'),
                  status: 200)
 
     client = OpenshiftClient::Client.new 'https://localhost:8080/oapi'
