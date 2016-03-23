@@ -1,14 +1,10 @@
 require 'test_helper'
 
-def open_test_json_file(name)
-  File.new(File.join(File.dirname(__FILE__), 'json', name))
-end
-
 # Build entity tests
 class TestBuild < MiniTest::Test
   def test_get_builds
     stub_request(:get, %r{/builds})
-      .to_return(body: open_test_json_file('builds_list.json'),
+      .to_return(body: open_test_file('builds_list.json'),
                  status: 200)
 
     client = OpenshiftClient::Client.new 'https://localhost:8080'
@@ -25,7 +21,7 @@ class TestBuild < MiniTest::Test
 
   def test_get_build
     stub_request(:get, %r{/builds})
-      .to_return(body: open_test_json_file('build.json'),
+      .to_return(body: open_test_file('build.json'),
                  status: 200)
 
     client = OpenshiftClient::Client.new 'https://localhost:8080'
