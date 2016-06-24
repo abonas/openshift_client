@@ -41,10 +41,12 @@ module OpenshiftClient
                    socket_options: {
                      socket_class:     nil,
                      ssl_socket_class: nil
-                   }
+                   },
+                   http_proxy_uri: nil
                   )
       initialize_client(uri, path, version, ssl_options: ssl_options, auth_options: auth_options,
-                                            socket_options: socket_options)
+                                            socket_options: socket_options,
+                                            http_proxy_uri: http_proxy_uri)
     end
 
     def all_entities
