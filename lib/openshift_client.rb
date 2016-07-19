@@ -17,7 +17,7 @@ module OpenshiftClient
     # manually on every new entity addition,
     # and especially since currently the class body is empty
     ENTITY_TYPES = %w(Project Route ClusterRoleBinding Build BuildConfig Image
-                      ImageStream).map do |et|
+                      ImageStream Template).map do |et|
       [OpenshiftClient.const_set(et, Class.new(RecursiveOpenStruct)), et]
     end
 
