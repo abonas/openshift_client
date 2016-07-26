@@ -1,0 +1,169 @@
+{
+  "kind": "TemplateList",
+  "apiVersion": "v1",
+  "metadata": {
+    "selfLink": "/oapi/v1/templates",
+    "resourceVersion": "9095951"
+  },
+  "items": [
+    {
+      "metadata": {
+        "name": "hawkular-cassandra-node-emptydir",
+        "namespace": "openshift-infra",
+        "selfLink": "/oapi/v1/namespaces/openshift-infra/templates/hawkular-cassandra-node-emptydir",
+        "uid": "2238a92c-8f70-11e5-a806-001a4a231290",
+        "resourceVersion": "1398",
+        "creationTimestamp": "2015-11-20T10:19:07Z",
+        "labels": {
+          "metrics-infra": "hawkular-cassandra"
+        }
+      },
+      "objects": [
+        {
+          "apiVersion": "v1",
+          "kind": "ReplicationController",
+          "metadata": {
+            "labels": {
+              "metrics-infra": "hawkular-cassandra",
+              "name": "hawkular-cassandra",
+              "type": "hawkular-cassandra"
+            },
+            "name": "hawkular-cassandra-${NODE}"
+          },
+          "spec": {
+            "replicas": 1,
+            "selector": {
+              "name": "hawkular-cassandra-${NODE}"
+            },
+            "template": {
+              "metadata": {
+                "labels": {
+                  "metrics-infra": "hawkular-cassandra",
+                  "name": "hawkular-cassandra-${NODE}",
+                  "type": "hawkular-cassandra"
+                }
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "command": [
+                      "/opt/apache-cassandra/bin/cassandra-docker.sh",
+                      "--seed_provider_classname=org.hawkular.openshift.cassandra.OpenshiftSeedProvider",
+                      "--cluster_name=hawkular-metrics",
+                      "--data_volume=/cassandra_data",
+                      "--internode_encryption=all",
+                      "--require_node_auth=true",
+                      "--enable_client_encryption=true",
+                      "--require_client_auth=true",
+                      "--keystore_file=/secret/cassandra.keystore",
+                      "--keystore_password_file=/secret/cassandra.keystore.password",
+                      "--truststore_file=/secret/cassandra.truststore",
+                      "--truststore_password_file=/secret/cassandra.truststore.password",
+                      "--cassandra_pem_file=/secret/cassandra.pem"
+                    ],
+                    "env": [
+                      {
+                        "name": "CASSANDRA_MASTER",
+                        "value": "${MASTER}"
+                      },
+                      {
+                        "name": "POD_NAMESPACE",
+                        "valueFrom": {
+                          "fieldRef": {
+                            "fieldPath": "metadata.namespace"
+                          }
+                        }
+                      }
+                    ],
+                    "image": "${IMAGE_PREFIX}metrics-cassandra:${IMAGE_VERSION}",
+                    "lifecycle": {
+                      "postStart": {
+                        "exec": {
+                          "command": [
+                            "/opt/apache-cassandra/bin/cassandra-docker-ready.sh"
+                          ]
+                        }
+                      },
+                      "preStop": {
+                        "exec": {
+                          "command": [
+                            "/opt/apache-cassandra/bin/cassandra-docker-pre-stop.sh"
+                          ]
+                        }
+                      }
+                    },
+                    "name": "hawkular-cassandra-${NODE}",
+                    "ports": [
+                      {
+                        "containerPort": 9042,
+                        "name": "cql-port"
+                      },
+                      {
+                        "containerPort": 9160,
+                        "name": "thift-port"
+                      },
+                      {
+                        "containerPort": 7000,
+                        "name": "tcp-port"
+                      },
+                      {
+                        "containerPort": 7001,
+                        "name": "ssl-port"
+                      }
+                    ],
+                    "volumeMounts": [
+                      {
+                        "mountPath": "/cassandra_data",
+                        "name": "cassandra-data"
+                      },
+                      {
+                        "mountPath": "/secret",
+                        "name": "hawkular-cassandra-secrets"
+                      }
+                    ]
+                  }
+                ],
+                "serviceAccount": "cassandra",
+                "volumes": [
+                  {
+                    "emptyDir": {},
+                    "name": "cassandra-data"
+                  },
+                  {
+                    "name": "hawkular-cassandra-secrets",
+                    "secret": {
+                      "secretName": "hawkular-cassandra-secrets"
+                    }
+                  }
+                ]
+              },
+              "version": "v1"
+            }
+          }
+        }
+      ],
+      "parameters": [
+        {
+          "name": "IMAGE_PREFIX",
+          "description": "Specify prefix for metrics components; e.g. for \"openshift/origin-metrics-deployer:v1.1\", set prefix \"openshift/origin-\"",
+          "value": "hawkular/"
+        },
+        {
+          "name": "IMAGE_VERSION",
+          "description": "Specify version for metrics components; e.g. for \"openshift/origin-metrics-deployer:v1.1\", set version \"v1.1\"",
+          "value": "latest"
+        },
+        {
+          "name": "MASTER",
+          "description": "If this Cassandra node should be the 'master' node.",
+          "value": "false"
+        },
+        {
+          "name": "NODE",
+          "description": "The node number for the Cassandra cluster.",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
