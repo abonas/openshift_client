@@ -52,5 +52,16 @@ module OpenshiftClient
     def all_entities
       retrieve_all_entities(ENTITY_TYPES)
     end
+
+    def process_template(template)
+      ns_prefix = build_namespace_prefix(template[:metadata][:namespace])
+      @headers['Content-Type'] = 'application/json'
+      response = handle_exception do
+        rest_client[ns_prefix + 'processedtemplates']
+        .post(template.to_h.to_json, @headers)
+      end
+      result = JSON.parse(response)
+      result
+    end
   end
 end
