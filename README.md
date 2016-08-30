@@ -32,6 +32,16 @@ TODO: Write usage instructions here
 Initialize the client:
 client = OpenshiftClient::Client.new 'https://hostName:8443'
 
+#### Process a template
+Returns a processed template containing a list of objects to create.
+Input parameter - template (hash)
+Besides its metadata, the template should include a list of objects to be processed and a list of parameters
+to be substituted. Note that for a required parameter that does not provide a generated value, you must supply a value.
+
+```ruby
+client.process_template template
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/openshift_client/fork )
