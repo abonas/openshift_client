@@ -52,5 +52,15 @@ module OpenshiftClient
     def all_entities
       retrieve_all_entities(ENTITY_TYPES)
     end
+
+    def create_project_request(project_request)
+      @headers['Content-Type'] = 'application/json'
+      response = handle_exception do
+        rest_client['projectrequests']
+          .post(project_request.to_h.to_json, @headers)
+      end
+      result = JSON.parse(response)
+      result
+    end
   end
 end
