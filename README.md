@@ -1,5 +1,32 @@
 # OpenshiftClient
 
+## Deprecated — now covered by [Kubeclient](https://github.com/abonas/kubeclient)
+
+This gem is no longer being developed.  It is not compatible, but also not necessary, with kubeclient 2.0.0 or later.
+
+### Transition tips (valid as of kubeclient 2.x – 4.2)
+
+Kubeclient gem since 2.0.0 is [capable of API discovery](https://github.com/abonas/kubeclient/pull/185) on any api extensions, including openshift.  Simply construct a additional client with `/oapi` url:
+```
+kclient = Kubeclient::Client.new('https://localhost:8443/api')
+kclient.get_pods
+
+oclient = Kubeclient::Client.new('https://localhost:8443/oapi')
+oclient.get_routes
+```
+
+Since openshift 3.6, instead of `oapi` you MAY also access all openshift entities under separate api groups at standard apis/ path, for example:
+```
+template_client = Kubeclient::Client.new('https://localhost:8443/apis/template.openshift.io', 'v1')
+template_client.get_templates
+```
+(but this currently requires many more separate client objects)
+
+Don't use resource-specific classes such as `Kubeclient::Service` or `OpenshiftClient::Route`, just use `Kubeclient::Resource` for everything.
+
+See also [Kubeclient's changelog](https://github.com/abonas/kubeclient/blob/master/CHANGELOG.md).
+
+----
 
 [![Gem Version](https://badge.fury.io/rb/openshift_client.svg)](http://badge.fury.io/rb/openshift_client)
 [![Build Status](https://travis-ci.org/abonas/openshift_client.svg?branch=master)](https://travis-ci.org/abonas/openshift_client)
